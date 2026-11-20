@@ -1,7 +1,7 @@
 {
-  "name": "forgex-license-server",
+  "name": "pl7-license-server",
   "version": "1.0.0",
-  "description": "ForgeEx license management server",
+  "description": "PL7 license management server",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
