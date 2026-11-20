@@ -12,7 +12,7 @@ app.use(cors());
 const ADMIN_TOKEN = '9883e25573fc8f78ef2d6d5222bd465b4c78a7195e895e0fb2dd3855a35448b0';
 const DB_PATH = path.join(__dirname, 'forgex.db');
 const PORT = process.env.PORT || 3000;
-const UPDATE_VERSION = 7;
+const UPDATE_VERSION = 9;
 const UPDATE_DIR = path.join(__dirname, 'update');
 
 let db;
@@ -105,7 +105,7 @@ app.post('/admin/keys', adminAuth, (req, res) => {
 
         for (let i = 0; i < n; i++) {
             const key = crypto.randomBytes(12).toString('hex').toUpperCase();
-            const formatted = `FGX-${key.slice(0,8)}-${key.slice(8,16)}-${key.slice(16)}`;
+            const formatted = `PL7-${key.slice(0,8)}-${key.slice(8,16)}-${key.slice(16)}`;
             const expires = expires_days
                 ? new Date(Date.now() + expires_days * 86400000).toISOString()
                 : null;
@@ -154,11 +154,11 @@ app.get('/update/check', (req, res) => {
 });
 
 app.get('/update/download', (req, res) => {
-    const exePath = path.join(UPDATE_DIR, 'FGX.exe');
+    const exePath = path.join(UPDATE_DIR, 'PL7.exe');
     if (!fs.existsSync(exePath)) {
         return res.status(404).json({ error: 'no update file' });
     }
-    res.download(exePath, 'FGX.exe');
+    res.download(exePath, 'PL7.exe');
 });
 
 // â”€â”€â”€ Serve admin panel â”€â”€â”€
@@ -194,9 +194,9 @@ async function start() {
     if (!fs.existsSync(UPDATE_DIR)) fs.mkdirSync(UPDATE_DIR, { recursive: true });
 
     app.listen(PORT, () => {
-        console.log(`[+] ForgeEx license server on port ${PORT}`);
+        console.log(`[+] PL7 license server on port ${PORT}`);
         console.log(`[+] Admin panel: http://localhost:${PORT}/panel`);
-        console.log(`[+] Update v${UPDATE_VERSION} â€” put new FGX.exe in: ${UPDATE_DIR}`);
+        console.log(`[+] Update v${UPDATE_VERSION} â€” put new PL7.exe in: ${UPDATE_DIR}`);
     });
 }
 
