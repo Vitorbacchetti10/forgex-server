@@ -12,7 +12,7 @@ app.use(cors());
 const ADMIN_TOKEN = '9883e25573fc8f78ef2d6d5222bd465b4c78a7195e895e0fb2dd3855a35448b0';
 const DB_PATH = path.join(__dirname, 'forgex.db');
 const PORT = process.env.PORT || 3000;
-const UPDATE_VERSION = 4;
+const UPDATE_VERSION = 5;
 const UPDATE_DIR = path.join(__dirname, 'update');
 
 let db;
