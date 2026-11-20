@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const initSqlJs = require('sql.js');
 const crypto = require('crypto');
 const path = require('path');
@@ -28,7 +28,7 @@ function adminAuth(req, res, next) {
     next();
 }
 
-// ─── Auth routes ───
+// â”€â”€â”€ Auth routes â”€â”€â”€
 
 app.post('/auth/login', (req, res) => {
     try {
@@ -76,7 +76,7 @@ app.post('/auth/heartbeat', (req, res) => {
     }
 });
 
-// ─── Admin routes ───
+// â”€â”€â”€ Admin routes â”€â”€â”€
 
 app.get('/admin/keys', adminAuth, (req, res) => {
     try {
@@ -146,7 +146,7 @@ app.post('/admin/keys/:key/toggle', adminAuth, (req, res) => {
     }
 });
 
-// ─── Update routes ───
+// â”€â”€â”€ Update routes â”€â”€â”€
 
 app.get('/update/check', (req, res) => {
     const clientVer = parseInt(req.query.v) || 0;
@@ -161,10 +161,10 @@ app.get('/update/download', (req, res) => {
     res.download(exePath, 'FGX.exe');
 });
 
-// ─── Serve admin panel ───
+// â”€â”€â”€ Serve admin panel â”€â”€â”€
 app.use('/panel', express.static(path.join(__dirname, 'panel')));
 
-// ─── Start ───
+// â”€â”€â”€ Start â”€â”€â”€
 async function start() {
     const SQL = await initSqlJs();
 
@@ -196,7 +196,7 @@ async function start() {
     app.listen(PORT, () => {
         console.log(`[+] ForgeEx license server on port ${PORT}`);
         console.log(`[+] Admin panel: http://localhost:${PORT}/panel`);
-        console.log(`[+] Update v${UPDATE_VERSION} — put new FGX.exe in: ${UPDATE_DIR}`);
+        console.log(`[+] Update v${UPDATE_VERSION} â€” put new FGX.exe in: ${UPDATE_DIR}`);
     });
 }
 

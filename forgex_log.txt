@@ -1,0 +1,9 @@
+[*] ForgeEx External — Starting...
+[*] Step 1: bypass::init_spoof_names
+[*] Step 2: bypass::find_roblox
+[+] Roblox PID: 29024
+[*] Step 3: sys::init
+[*] Step 4: sys::build_stubs
+[*] Step 5: overlay::init
+[+] All init OK
+[*] Step 6: protect_overlay_window
